@@ -14,15 +14,43 @@
 
 void    sa(t_list **listA)
 {
-    t_list  *referenceA = *listA;
-    t_list  *next = (*listA)->next;
+    t_list  *referenceA;
 
-    if (*listA != NULL || (*listA)->next != NULL)
-    {
-        referenceA->next = next->next;
-        next->next = referenceA;
-        *listA = next;
-        (*listA)->next = referenceA->next;
-    }
-    return ;
+    if (*listA == NULL || (*listA)->next == NULL)
+        return ;
+    referenceA = *listA;
+    *listA = (*listA)->next;
+    referenceA->next = (*listA)->next;
+    (*listA)->next = referenceA;
 }
+
+void    sb(t_list **listB)
+{
+    t_list  *referenceB;
+
+    if (*listB == NULL || (*listB)->next == NULL)
+        return ;
+    referenceB = *listB;
+    *listB = (*listB)->next;
+    referenceB->next = (*listB)->next;
+    (*listB)->next = referenceB;
+}
+
+void    ss(t_list *listA, t_list *listB)
+{
+    sa(&listA);
+    sb(&listB);
+}
+
+void    pa(t_list **listA, t_list **listB)
+{
+    t_list  *referenceB;
+    
+    if (*listB == NULL)
+        return ;
+    referenceB = *listB;
+    *listB = (*listB)->next;
+    referenceB->next = *listA
+    *listA = referenceB;
+}
+

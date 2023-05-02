@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 20:17:00 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/02 23:13:43 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/03 23:21:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ int check(char *arg)
     int i;
     int ok;
 
-    ok = 1;
+    ok = 0;
     i = 0;
+    if (arg[i] == '-' || arg[i] == '+')
+        i++;
     while (arg[i])
     {
-        if ((arg[i] >= '0' && arg[i] <= '9') || arg[i] == '-' || arg[i] == '+')
-            i++;
+        if ((arg[i] >= '0' && arg[i++] <= '9'))
+            ok = 1;
         else
         {
             ok = 0;

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 14:20:12 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/03 12:00:55 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/04 00:06:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int ac, char **av)
     
     i = 0;
     listA = NULL;
-    listB = NULL;
+    listB = ft_lstnew(1);
     if (ac < 2)
         return (0);
     while (av[++i])
@@ -32,7 +32,7 @@ int main(int ac, char **av)
         else
             ft_lstclear(&listA);
     }
-    //sa(&listA);
+    pa(&listA, &listB);
     while (listA) 
     {
         printf("%d\n", listA->nbr);
