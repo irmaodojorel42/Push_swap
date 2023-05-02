@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 20:14:16 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/01 23:32:10 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:15:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,33 @@ t_list   *ft_lstnew(int n)
     return (new);
 }
 
-void   ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-    new->next = *lst;
-    *lst = new;
+	t_list	*reference;
+
+	reference = *lst;
+	if (*lst == NULL)
+		*lst = new;
+	else
+	{
+		while (reference->next != NULL)
+			reference = reference->next;
+		reference->next = new;
+	}
+}
+
+void    ft_lstclear(t_list **lst)
+{
+    t_list  *reference;
+
+    if (!*lst)
+        exit (write(1, "Error\n", 6));
+    while (*lst)
+    {
+        reference = (*lst)->next;
+        free (*lst);
+        *lst = reference;
+    }
+    lst = NULL;
+    exit (write(1, "Error\n", 6));
 }

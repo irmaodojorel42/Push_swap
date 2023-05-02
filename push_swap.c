@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 14:20:12 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/01 23:52:09 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:17:46 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,21 @@ int main(int ac, char **av)
 {
     t_list  *list1;
     t_list  *list2;
-    t_list  *reference;
     int i;
     
     i = 0;
     list1 = NULL;
     list2 = NULL;
-    reference = list1;
     if (ac < 2)
         return (0);
     while (av[++i])
     {
-        if (check(av[i]) > 0)
-        {
-            ft_lstadd_front(&list1, ft_lstnew(converse(av[i])));
-            if (check_copy(list1) == 0)
-            {
-                write(1, "Error\n", 6);
-                return (0);
-            }
-        }
+        if (converse(av[i]) < -2147483648 || converse(av[i]) > 2147483647)
+            ft_lstclear(&list1);
+        else if (check(av[i]) > 0 && check_copy(list1, converse(av[i])) > 0)
+            ft_lstadd_back(&list1, ft_lstnew(converse(av[i])));
         else
-        {
-            write(1, "Error\n", 6);
-            return (0);
-        }
+            ft_lstclear(&list1);
     }
     while (list1) 
     {

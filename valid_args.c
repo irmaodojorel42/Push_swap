@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   valid_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 20:17:00 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/01 23:50:52 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:04:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
 int check(char *arg)
 {
@@ -21,7 +22,7 @@ int check(char *arg)
     i = 0;
     while (arg[i])
     {
-        if ((arg[i] >= '0' && arg[i] <= '9') || arg[i] == ' ')
+        if ((arg[i] >= '0' && arg[i] <= '9') || arg[i] == '-' || arg[i] == '+')
             i++;
         else
         {
@@ -32,16 +33,16 @@ int check(char *arg)
     return (ok);
 }
 
-int check_copy(t_list *lst)
+int check_copy(t_list *lst, int n)
 {
     int ok;
     t_list *cmp;
     
     ok = 1;
-    cmp = lst->next;
+    cmp = lst;
     while (cmp)
     {
-        if (lst->nbr != cmp->nbr)
+        if (cmp->nbr != n)
             cmp = cmp->next;
         else
         {
@@ -52,11 +53,11 @@ int check_copy(t_list *lst)
     return (ok);
 }
 
-int	converse(char *arg)
+long int	converse(char *arg)
 {
 	int	i;
 	int	s;
-	int	n;
+	long int	n;
 
 	i = 0;
 	s = 1;
