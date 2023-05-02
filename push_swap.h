@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 12:21:59 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/02 16:14:17 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/02 23:22:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ long int converse(char *arg);
 int check(char *arg);
 int check_copy(t_list *lst, int n);
 void    ft_lstclear(t_list **lst);
+void    sa(t_list **listA);
 
 #endif

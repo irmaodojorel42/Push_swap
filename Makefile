@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/01 12:24:34 by ceribeir          #+#    #+#              #
-#    Updated: 2023/05/01 20:30:12 by ceribeir         ###   ########.fr        #
+#    Updated: 2023/05/02 19:53:36 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,8 @@ SRC = push_swap.c list.c valid_args.c
 
 OBJ = $(SRC:.c=.o)
 
-$(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+$(NAME):
+	$(AR) $(NAME)
 
 all: $(NAME)
 

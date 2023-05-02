@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 14:20:12 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/02 16:17:46 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/03 12:00:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,29 @@
 
 int main(int ac, char **av)
 {
-    t_list  *list1;
-    t_list  *list2;
+    t_list  *listA;
+    t_list  *listB;
     int i;
     
     i = 0;
-    list1 = NULL;
-    list2 = NULL;
+    listA = NULL;
+    listB = NULL;
     if (ac < 2)
         return (0);
     while (av[++i])
     {
         if (converse(av[i]) < -2147483648 || converse(av[i]) > 2147483647)
-            ft_lstclear(&list1);
-        else if (check(av[i]) > 0 && check_copy(list1, converse(av[i])) > 0)
-            ft_lstadd_back(&list1, ft_lstnew(converse(av[i])));
+            ft_lstclear(&listA);
+        else if (check(av[i]) > 0 && check_copy(listA, converse(av[i])) > 0)
+            ft_lstadd_back(&listA, ft_lstnew(converse(av[i])));
         else
-            ft_lstclear(&list1);
+            ft_lstclear(&listA);
     }
-    while (list1) 
+    //sa(&listA);
+    while (listA) 
     {
-        printf("%d\n", list1->nbr);
-        list1 = list1->next;
-    }    
+        printf("%d\n", listA->nbr);
+        listA = listA->next;
+    }
     return (0);
 }
