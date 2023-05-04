@@ -54,3 +54,16 @@ void    ft_lstclear(t_list **lst)
     lst = NULL;
     exit (write(1, "Error\n", 6));
 }
+
+int	ft_lstsize(t_list *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst != NULL)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
+}

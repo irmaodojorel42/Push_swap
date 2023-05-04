@@ -12,6 +12,28 @@
 
 #include "push_swap.h"
 
+void    print_stack(t_list **listA, t_list **listB)
+{
+    printf("Stack A | Stack B\n");
+    while (*listA || *listB) 
+    {
+        if(*listA)
+        {
+            printf("%d       | ", (*listA)->nbr);
+            *listA = (*listA)->next;
+        }
+        else
+            printf("        | ");
+        if(*listB)
+        {
+            printf("%d\n", (*listB)->nbr);
+            *listB = (*listB)->next;
+        }
+        else
+            printf("\n");
+    }
+}
+
 int main(int ac, char **av)
 {
     t_list  *listA;
@@ -20,9 +42,7 @@ int main(int ac, char **av)
     
     i = 0;
     listA = NULL;
-    listB = ft_lstnew(1);
-    ft_lstadd_back(&listB, ft_lstnew(2));
-    ft_lstadd_back(&listB, ft_lstnew(3));
+    listB = NULL;
     if (ac < 2)
         return (0);
     while (av[++i])
@@ -34,24 +54,6 @@ int main(int ac, char **av)
         else
             ft_lstclear(&listA);
     }
-    sasb(&listA, 'A');
-    printf("Stack A | Stack B\n");
-    while (listA || listB) 
-    {
-        if(listA)
-        {
-            printf("%d       | ", listA->nbr);
-            listA = listA->next;
-        }
-        else
-            printf("        | ");
-        if(listB)
-        {
-            printf("%d\n", listB->nbr);
-            listB = listB->next;
-        }
-        else
-            printf("\n");
-    }
+    print_stack(&listA, &listB);
     return (0);
 }

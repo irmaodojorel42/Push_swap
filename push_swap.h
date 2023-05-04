@@ -24,11 +24,15 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-int		push(int ac, char **av);
+/****************FUNCTIONS_PUSH_SWAP****************/
+
+int		main(int ac, char **av);
+void    print_stack(t_list **listA, t_list **listB);
 
 /****************FUNCTIONS_LIST****************/
 
 t_list	*ft_lstnew(int n);
+int		ft_lstsize(t_list *lst);
 void	ft_lstclear(t_list **lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 
@@ -40,9 +44,10 @@ int		check_copy(t_list *lst, int n);
 
 /****************FUNCTIONS_MOVES****************/
 
-void    sasb(t_list **list, char stack);
-void    ss(t_list **listA, t_list **listB);
-void    pa(t_list **listA, t_list **listB);
-
+void    swap(t_list **list, char stack);
+void    rotate(t_list **list, char stack);
+void    rev_rotate(t_list **list, char stack);
+void    push(t_list **list1, t_list **list2, char stack);
+void    dualmove(t_list **listA, t_list **listB, char move);
 
 #endif
