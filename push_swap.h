@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 12:21:59 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/04 13:13:10 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/04 22:54:38 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_list
 /****************FUNCTIONS_PUSH_SWAP****************/
 
 int		main(int ac, char **av);
-void    print_stack(t_list **listA, t_list **listB);
+void	print_stack(t_list **listA, t_list **listB);
 
 /****************FUNCTIONS_LIST****************/
 
@@ -44,10 +44,10 @@ int		check_copy(t_list *lst, int n);
 
 /****************FUNCTIONS_MOVES****************/
 
-void    swap(t_list **list, char stack);
-void    rotate(t_list **list, char stack);
-void    rev_rotate(t_list **list, char stack);
-void    push(t_list **list1, t_list **list2, char stack);
-void    dualmove(t_list **listA, t_list **listB, char move);
+void	swap(t_list **list, char stack);
+void	rotate(t_list **list, char stack);
+void	rev_rotate(t_list **list, char stack);
+void	push(t_list **list1, t_list **list2, char stack);
+void	dualmove(t_list **listA, t_list **listB, char move);
 
 #endif
