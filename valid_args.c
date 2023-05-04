@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   valid_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 20:17:00 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/03 23:21:54 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/03 20:19:55 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
 
 int check(char *arg)
 {
@@ -24,8 +23,9 @@ int check(char *arg)
         i++;
     while (arg[i])
     {
-        if ((arg[i] >= '0' && arg[i++] <= '9'))
-            ok = 1;
+        ok = 1;
+        if ((arg[i] >= '0' && arg[i] <= '9'))
+            i++;
         else
         {
             ok = 0;

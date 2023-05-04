@@ -12,34 +12,27 @@
 
 #include "push_swap.h"
 
-void    sa(t_list **listA)
+void    sasb(t_list **list, char stack)
 {
-    t_list  *referenceA;
+    t_list  *reference;
 
-    if (*listA == NULL || (*listA)->next == NULL)
+    if (*list == NULL || (*list)->next == NULL)
         return ;
-    referenceA = *listA;
-    *listA = (*listA)->next;
-    referenceA->next = (*listA)->next;
-    (*listA)->next = referenceA;
+    reference = *list;
+    *list = (*list)->next;
+    reference->next = (*list)->next;
+    (*list)->next = reference;
+    if (stack == 'A')
+        write(1, "sa\n", 3);
+    else if (stack == 'B')
+        write(1, "sb\n", 3);
 }
 
-void    sb(t_list **listB)
+void    ss(t_list **listA, t_list **listB)
 {
-    t_list  *referenceB;
-
-    if (*listB == NULL || (*listB)->next == NULL)
-        return ;
-    referenceB = *listB;
-    *listB = (*listB)->next;
-    referenceB->next = (*listB)->next;
-    (*listB)->next = referenceB;
-}
-
-void    ss(t_list *listA, t_list *listB)
-{
-    sa(&listA);
-    sb(&listB);
+    sasb(listA, 'X');
+    sasb(listB, 'X');
+    write(1, "ss\n", 3);
 }
 
 void    pa(t_list **listA, t_list **listB)
@@ -50,7 +43,7 @@ void    pa(t_list **listA, t_list **listB)
         return ;
     referenceB = *listB;
     *listB = (*listB)->next;
-    referenceB->next = *listA
+    referenceB->next = *listA;
     *listA = referenceB;
+    write(1, "pa\n", 3);
 }
-

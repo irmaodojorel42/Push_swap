@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 14:20:12 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/04 00:06:03 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/04 20:00:43 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int main(int ac, char **av)
     i = 0;
     listA = NULL;
     listB = ft_lstnew(1);
+    ft_lstadd_back(&listB, ft_lstnew(2));
+    ft_lstadd_back(&listB, ft_lstnew(3));
     if (ac < 2)
         return (0);
     while (av[++i])
@@ -32,11 +34,24 @@ int main(int ac, char **av)
         else
             ft_lstclear(&listA);
     }
-    pa(&listA, &listB);
-    while (listA) 
+    sasb(&listA, 'A');
+    printf("Stack A | Stack B\n");
+    while (listA || listB) 
     {
-        printf("%d\n", listA->nbr);
-        listA = listA->next;
+        if(listA)
+        {
+            printf("%d       | ", listA->nbr);
+            listA = listA->next;
+        }
+        else
+            printf("        | ");
+        if(listB)
+        {
+            printf("%d\n", listB->nbr);
+            listB = listB->next;
+        }
+        else
+            printf("\n");
     }
     return (0);
 }
