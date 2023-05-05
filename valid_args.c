@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 20:17:00 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/04 23:25:56 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/05 21:48:21 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ long int	converse(char *arg)
 {
 	int			i;
 	int			s;
-	long int		n;
+	long int	n;
 
 	i = 0;
 	s = 1;

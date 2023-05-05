@@ -6,31 +6,36 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 14:20:12 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/04 23:13:48 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/05 21:46:59 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_list **listA, t_list **listB)
+void	print_stack(t_list **list_1, t_list **list_2)
 {
-	printf("Stack A | Stack B\n");
-	while (*listA || *listB)
+	t_list	*list_a;
+	t_list	*list_b;
+
+	list_a = *list_1;
+	list_b = *list_2;
+	ft_printf("Stack A | Stack B\n");
+	while (list_a || list_b)
 	{
-		if (*listA)
+		if (list_a)
 		{
-			printf("%d       | ", (*listA)->nbr);
-			*listA = (*listA)->next;
+			ft_printf("%d       | ", list_a->nbr);
+			list_a = listA->next;
 		}
 		else
-			printf("        | ");
-		if (*listB)
+			ft_printf("        | ");
+		if (list_b)
 		{
-			printf("%d\n", (*listB)->nbr);
-			*listB = (*listB)->next;
+			ft_printf("%d\n", list_b->nbr);
+			list_b = list_b->next;
 		}
 		else
-			printf("\n");
+			ft_printf("\n");
 	}
 }
 
@@ -54,6 +59,8 @@ int	main(int ac, char **av)
 		else
 			ft_lstclear(&list_a);
 	}
+	print_stack(&list_a, &list_b);
+	sort(&list_a);
 	print_stack(&list_a, &list_b);
 	return (0);
 }

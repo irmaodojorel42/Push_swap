@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 19:59:09 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/04 23:04:10 by ceribeir         ###   ########.fr       */
+/*   Created: 2023/05/05 16:07:34 by ceribeir          #+#    #+#             */
+/*   Updated: 2023/05/05 16:07:34 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,9 @@ void	rev_rotate(t_list **list, char stack)
 	*list = reference;
 	reference2->next = NULL;
 	if (stack == 'A')
-		write(1, "rra\n", 3);
+		write(1, "rra\n", 4);
 	if (stack == 'B')
-		write(1, "rrb\n", 3);
+		write(1, "rrb\n", 4);
 }
 
 void	dualmove(t_list **listA, t_list **listB, char move)
