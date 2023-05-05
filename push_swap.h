@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 12:21:59 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/05 21:51:41 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/05 22:32:15 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,10 @@ int		ft_formatype(char type, va_list args);
 int		ft_check(unsigned long int n, int type);
 int		ft_hexadec(unsigned long int n, int type);
 
-void	sort(t_list **listA);
+/*********************FUNCTIONS_RULES*********************/
+
+void	sort(t_list **list_a, t_list **list_b);
+void	rule_5(t_list **list_a, t_list **list_b);
 void	rule_3(t_list *ref_1, t_list *ref_2, t_list *ref_3, t_list **listA);
 
 #endif

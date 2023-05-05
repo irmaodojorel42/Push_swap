@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 14:20:12 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/05 21:46:59 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/05 22:24:08 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	print_stack(t_list **list_1, t_list **list_2)
 		if (list_a)
 		{
 			ft_printf("%d       | ", list_a->nbr);
-			list_a = listA->next;
+			list_a = list_a->next;
 		}
 		else
 			ft_printf("        | ");
@@ -60,7 +60,7 @@ int	main(int ac, char **av)
 			ft_lstclear(&list_a);
 	}
 	print_stack(&list_a, &list_b);
-	sort(&list_a);
+	sort(&list_a, &list_b);
 	print_stack(&list_a, &list_b);
 	return (0);
 }
