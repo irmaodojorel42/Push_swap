@@ -6,7 +6,7 @@
 #    By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/01 12:24:34 by ceribeir          #+#    #+#              #
-#    Updated: 2023/05/06 19:41:04 by ceribeir         ###   ########.fr        #
+#    Updated: 2023/05/07 23:35:46 by ceribeir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,13 @@ NAME = push_swap
 
 CC = cc
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address
 
 RM = rm -f
 
 AR = ar -rsc
 
-SRC = push_swap.c list.c valid_args.c moves.c ft_typesprintf.c ft_printf.c rules.c info_list.c
+SRC = push_swap.c list.c valid_args.c moves.c ft_typesprintf.c ft_printf.c rules.c info_list.c fakemoves.c fakesort.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -45,3 +45,5 @@ fclean: clean
 re: fclean all
 	
 .PHONE: all clean fclan re
+
+#-g3 -fsanitize=address

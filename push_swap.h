@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 12:21:59 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/06 23:12:54 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:34:19 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ int		check_copy(t_list *lst, int n);
 
 /************************FUNCTIONS_MOVES***********************/
 
-int		swap(t_list **list, char stack);
-int		rotate(t_list **list, char stack);
-int		rev_rotate(t_list **list, char stack);
-int		push(t_list **list1, t_list **list2, char stack);
-int		dualmove(t_list **listA, t_list **listB, char move);
+void	swap(t_list **list, char stack);
+void	rotate(t_list **list, char stack);
+void	rev_rotate(t_list **list, char stack);
+void	push(t_list **list1, t_list **list2, char stack);
+void	dualmove(t_list **listA, t_list **listB, char move);
 
 /*********************FUNCTIONS_FT_PRINTF*********************/
 
@@ -67,16 +67,30 @@ int		ft_hexadec(unsigned long int n, int type);
 
 /*********************FUNCTIONS_RULES*********************/
 
-int		sort(t_list **list_a, t_list **list_b);
-int		rule_5(t_list **list_a, t_list **list_b);
-int		rule_100(t_list **list_a, t_list **list_b);
-int		rule_3(t_list *ref_1, t_list *ref_2, t_list *ref_3, t_list **listA);
+void	sort(t_list **list_a, t_list **list_b);
+void	rule_5(t_list **list_a, t_list **list_b);
+void	rule_100(t_list **list_a, t_list **list_b);
+void	rule_3(t_list *ref_1, t_list *ref_2, t_list *ref_3, t_list **listA);
 
 /*********************FUNCTIONS_INFO_LIST*********************/
 
 int		mini_nbr(t_list **list);
 int		distance(t_list **list);
-int		mini_nbr_3(t_list **list);
+int		mid_nbr(t_list **list_a);
+t_list	*copy_stack(t_list *list_a);
+int		mini_nbr_next(t_list **list);
+
+
+/*********************FUNCTIONS_FAKE_SORT*********************/
+
+void	fake_swap(t_list **list);
+void	fake_rotate(t_list **list);
+void	fake_ft_lstclear(t_list **lst);
+void	fake_rev_rotate(t_list **list);
+void	fake_push(t_list **list1, t_list **list2);
+void	fake_sort(t_list **list_a, t_list **list_b);
+void	fake_rule_5(t_list **list_a, t_list **list_b);
+void	fake_3(t_list *ref_1, t_list *ref_2, t_list *ref_3, t_list **listA);
 
 
 #endif

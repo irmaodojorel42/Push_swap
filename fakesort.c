@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules.c                                            :+:      :+:    :+:   */
+/*   fakesort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 16:06:57 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/08 15:53:52 by ceribeir         ###   ########.fr       */
+/*   Created: 2023/05/07 22:14:16 by ceribeir          #+#    #+#             */
+/*   Updated: 2023/05/08 14:46:07 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort(t_list **list_a, t_list **list_b)
+void	fake_sort(t_list **list_a, t_list **list_b)
 {
 	t_list	*ref_1;
 	t_list	*ref_2;
@@ -22,92 +22,76 @@ void	sort(t_list **list_a, t_list **list_b)
 	ref_2 = (*list_a)->next;
 	ref_3 = ref_2->next;
 	if (ft_lstsize(*list_a) == 2 && (*list_a)->nbr > ref_2->nbr)
-		swap(list_a, 'A');
+		fake_swap(list_a);
 	if (ft_lstsize(*list_a) == 3)
-		rule_3(ref_1, ref_2, ref_3, list_a);
-	if (ft_lstsize(*list_a) >= 4 && ft_lstsize(*list_a) <= 10)
-		rule_5(list_a, list_b);
-	if (ft_lstsize(*list_a) > 10)
-		rule_100(list_a, list_b);
+		fake_3(ref_1, ref_2, ref_3, list_a);
+	if (ft_lstsize(*list_a) >= 4)
+		fake_rule_5(list_a, list_b);
 }
 
-void	rule_3(t_list *ref_1, t_list *ref_2, t_list *ref_3, t_list **listA)
+void	fake_3(t_list *ref_1, t_list *ref_2, t_list *ref_3, t_list **listA)
 {
 	if (ref_1->nbr > ref_2->nbr)
 	{
 		if (ref_3->nbr > ref_2->nbr && ref_3->nbr > ref_1->nbr)
-			swap(listA, 'A');
+			fake_swap(listA);
 		else if (ref_3->nbr > ref_2->nbr && ref_1->nbr > ref_3->nbr)
-			rotate(listA, 'A');
+			fake_rotate(listA);
 		else if (ref_2->nbr > ref_3->nbr && ref_1->nbr > ref_3->nbr)
 		{
-			swap(listA, 'A');
-			rev_rotate(listA, 'A');
+			fake_swap(listA);
+			fake_rev_rotate(listA);
 		}
 	}
 	else if (ref_2->nbr > ref_1->nbr)
 	{
 		if (ref_2->nbr > ref_3->nbr && ref_1->nbr > ref_3->nbr)
-			rev_rotate(listA, 'A');
+			fake_rev_rotate(listA);
 		else if (ref_2->nbr > ref_3->nbr && ref_3->nbr > ref_1->nbr)
 		{
-			swap(listA, 'A');
-			rotate(listA, 'A');
+			fake_swap(listA);
+			fake_rotate(listA);
 		}
 	}
 }
 
-void	rule_5(t_list **list_a, t_list **list_b)
+void	fake_rule_5(t_list **list_a, t_list **list_b)
 {
 	while (ft_lstsize(*list_a) != 3)
 	{
 		if (distance(list_a) > (ft_lstsize(*list_a) / 2))
 		{
 			while (distance(list_a) != 1)
-				rev_rotate(list_a, 'A');
+				fake_rev_rotate(list_a);
 		}
 		else
 		{
 			while (distance(list_a) != 1)
-				rotate(list_a, 'A');
+				fake_rotate(list_a);
 		}
-		push(list_b, list_a, 'B');
+		fake_push(list_b, list_a);
 	}
-	sort(list_a, list_b);
+	fake_sort(list_a, list_b);
 	while (ft_lstsize(*list_b) != 1)
 	{
 		while (distance(list_b) == 1)
-			swap(list_b, 'B');
-		push(list_a, list_b, 'A');
+			fake_swap(list_b);
+		fake_push(list_a, list_b);
 	}
-	push(list_a, list_b, 'A');
+	fake_push(list_a, list_b);
 }
 
-void	rule_100(t_list **list_a, t_list **list_b)
+void	fake_ft_lstclear(t_list **lst)
 {
-	int			mini;
-	int			mid;
-	int			mid_a;
-	static int	repit;
+	t_list	*reference;
 
-	repit = 0;
-	
-	// ft_printf("mid: %d", mid);
-	// ft_printf("size a: %d", ft_lstsize(*list_a));
-	// ft_printf("size b: %d", ft_lstsize(*list_b));
-	while (repit != 1)
+	if (!*lst)
+		return ;
+	while (*lst)
 	{
-		mid = mid_nbr(list_a);
-		mid_a = (ft_lstsize(*list_a) / 2);
-		mini = mini_nbr(list_a);
-		while (ft_lstsize(*list_a) > mid_a)
-		{
-			if ((*list_a)->nbr <= mid)
-				push(list_b, list_a, 'B');
-			else
-				rotate(list_a, 'A');
-		}
-		repit++;
+		reference = (*lst)->next;
+		free (*lst);
+		*lst = reference;
 	}
-	//rule_5(list_a, list_b);
+	lst = NULL;
 }
