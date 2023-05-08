@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 12:21:59 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/08 15:34:19 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/08 23:09:13 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,16 +70,22 @@ int		ft_hexadec(unsigned long int n, int type);
 void	sort(t_list **list_a, t_list **list_b);
 void	rule_5(t_list **list_a, t_list **list_b);
 void	rule_100(t_list **list_a, t_list **list_b);
+void	rule_500(t_list **list_a, t_list **list_b);
 void	rule_3(t_list *ref_1, t_list *ref_2, t_list *ref_3, t_list **listA);
 
 /*********************FUNCTIONS_INFO_LIST*********************/
 
+int		maxi_nbr(t_list **list);
 int		mini_nbr(t_list **list);
 int		distance(t_list **list);
-int		mid_nbr(t_list **list_a);
 t_list	*copy_stack(t_list *list_a);
-int		mini_nbr_next(t_list **list);
 
+/*********************FUNCTIONS_MID_LIST*********************/
+
+int		mid_nbr100(t_list **list_a);
+int		mid_nbr500(t_list **list_a);
+int		mid_b_nbr100(t_list **list_a);
+int		mid_b_nbr500(t_list **list_a);
 
 /*********************FUNCTIONS_FAKE_SORT*********************/
 
@@ -91,6 +97,5 @@ void	fake_push(t_list **list1, t_list **list2);
 void	fake_sort(t_list **list_a, t_list **list_b);
 void	fake_rule_5(t_list **list_a, t_list **list_b);
 void	fake_3(t_list *ref_1, t_list *ref_2, t_list *ref_3, t_list **listA);
-
 
 #endif

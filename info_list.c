@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 19:09:13 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/08 15:43:43 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/08 22:03:22 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,27 +49,6 @@ t_list	*copy_stack(t_list *list_a)
 	return (ref_copy);
 }
 
-int	mid_nbr(t_list **list_a)
-{
-	int		i;
-	t_list	*reference_a;
-	t_list	*reference_b;
-
-	i = (ft_lstsize(*list_a) / 2);
-	reference_a = copy_stack(*list_a);
-	reference_b = NULL;
-	fake_sort(&reference_a, &reference_b);
-	while (i != 1)
-	{
-		reference_a = reference_a->next;
-		i--;
-	}
-	i = reference_a->nbr;
-	fake_ft_lstclear(&reference_a);
-	//ft_printf("mid: %d", i);
-	return (i);
-}
-
 int	distance(t_list **list)
 {
 	t_list	*reference;
@@ -87,28 +66,20 @@ int	distance(t_list **list)
 	return (i);
 }
 
-int	mini_nbr_next(t_list **list)
+int	maxi_nbr(t_list **list)
 {
-	int		mini;
-	int		next;
+	int		i;
 	t_list	*reference;
 
-	mini = mini_nbr(list);
 	reference = *list;
-	if (reference->nbr != mini)
-		next = reference->nbr;
-	else
-	{
-		reference = reference->next;
-		next = reference->nbr;
-	}
+	i = reference->nbr;
 	while (reference->next != NULL)
 	{
 		reference = reference->next;
-		if ((reference->nbr < next) && (reference->nbr != mini))
-			next = reference->nbr;
+		if (reference->nbr > i)
+			i = reference->nbr;
 	}
-	return (next);
+	return (i);
 }
 
 /*ficheiro cheio*/

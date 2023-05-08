@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 14:20:12 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/08 15:54:06 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:19:49 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ int	main(int ac, char **av)
 	//print_stack(&list_a, &list_b);
 	sort(&list_a, &list_b);
 	//print_stack(&list_a, &list_b);
+	fake_ft_lstclear(&list_a);
 	return (0);
 }

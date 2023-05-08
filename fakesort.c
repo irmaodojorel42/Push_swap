@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 22:14:16 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/08 14:46:07 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/08 21:55:50 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,3 +95,4 @@ void	fake_ft_lstclear(t_list **lst)
 	}
 	lst = NULL;
 }
+
