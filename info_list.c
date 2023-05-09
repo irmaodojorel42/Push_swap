@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 19:09:13 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/08 22:03:22 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:42:28 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,32 @@ t_list	*copy_stack(t_list *list_a)
 	return (ref_copy);
 }
 
-int	distance(t_list **list)
+int	distance(t_list **list, char nbr)
 {
 	t_list	*reference;
 	int		mini;
+	int		maxi;
 	int		i;
 
 	i = 1;
 	mini = mini_nbr(list);
+	maxi = maxi_nbr(list);
 	reference = *list;
-	while (reference->nbr != mini)
+	if (nbr == 'M')
 	{
-		reference = reference->next;
-		i++;
+		while (reference->nbr != maxi)
+		{
+			reference = reference->next;
+			i++;
+		}
+	}
+	if (nbr == 'm')
+	{
+		while (reference->nbr != mini)
+		{
+			reference = reference->next;
+			i++;
+		}
 	}
 	return (i);
 }

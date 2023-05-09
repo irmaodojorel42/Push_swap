@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:06:57 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/09 13:52:15 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:55:37 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,14 @@ void	rule_5(t_list **list_a, t_list **list_b)
 {
 	while (ft_lstsize(*list_a) != 3)
 	{
-		if (distance(list_a) > (ft_lstsize(*list_a) / 2))
+		if (distance(list_a, 'm') > (ft_lstsize(*list_a) / 2))
 		{
-			while (distance(list_a) != 1)
+			while (distance(list_a, 'm') != 1)
 				rev_rotate(list_a, 'A');
 		}
 		else
 		{
-			while (distance(list_a) != 1)
+			while (distance(list_a, 'm') != 1)
 				rotate(list_a, 'A');
 		}
 		push(list_b, list_a, 'B');
@@ -78,7 +78,7 @@ void	rule_5(t_list **list_a, t_list **list_b)
 	sort(list_a, list_b);
 	while (ft_lstsize(*list_b) != 1)
 	{
-		while (distance(list_b) == 1)
+		while (distance(list_b, 'm') == 1)
 			swap(list_b, 'B');
 		push(list_a, list_b, 'A');
 	}
@@ -145,5 +145,21 @@ void	rule_500(t_list **list_a, t_list **list_b)
 	}
 	while (ft_lstsize(*list_a) > 0)
 		push(list_b, list_a, 'B');
-	// rule_5(list_a, list_b);
+	// ft_printf("%d\n", ft_lstsize(*list_b));
+	while (ft_lstsize(*list_b) > 0)
+	{
+		// ft_printf("ok\n");
+		if (distance(list_b, 'M') > (ft_lstsize(*list_b) / 2))
+		{
+			while (distance(list_b, 'M') != 1)
+				rev_rotate(list_b, 'B');
+		}
+		else
+		{
+			while (distance(list_b, 'M') != 1)
+				rotate(list_b, 'B');
+		}
+		push(list_a, list_b, 'A');
+	}
+	//rule_5(list_a, list_b);
 }

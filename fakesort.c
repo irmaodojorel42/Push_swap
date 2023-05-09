@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 22:14:16 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/08 21:55:50 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:23:08 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,14 @@ void	fake_rule_5(t_list **list_a, t_list **list_b)
 {
 	while (ft_lstsize(*list_a) != 3)
 	{
-		if (distance(list_a) > (ft_lstsize(*list_a) / 2))
+		if (distance(list_a, 'm') > (ft_lstsize(*list_a) / 2))
 		{
-			while (distance(list_a) != 1)
+			while (distance(list_a, 'm') != 1)
 				fake_rev_rotate(list_a);
 		}
 		else
 		{
-			while (distance(list_a) != 1)
+			while (distance(list_a, 'm') != 1)
 				fake_rotate(list_a);
 		}
 		fake_push(list_b, list_a);
@@ -74,7 +74,7 @@ void	fake_rule_5(t_list **list_a, t_list **list_b)
 	fake_sort(list_a, list_b);
 	while (ft_lstsize(*list_b) != 1)
 	{
-		while (distance(list_b) == 1)
+		while (distance(list_b, 'm') == 1)
 			fake_swap(list_b);
 		fake_push(list_a, list_b);
 	}
