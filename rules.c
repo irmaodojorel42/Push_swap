@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:06:57 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/08 23:49:00 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:52:15 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void	rule_500(t_list **list_a, t_list **list_b)
 	int		repit;
 
 	repit = 0;
-	while (repit != 30)
+	while (repit != 28)
 	{
 		mid = mid_nbr500(list_a);
 		mid_b = mid_b_nbr500(list_a);
@@ -132,7 +132,7 @@ void	rule_500(t_list **list_a, t_list **list_b)
 			if ((*list_a)->nbr <= mid)
 			{
 				push(list_b, list_a, 'B');
-				if ((ft_lstsize(*list_b) > 1) && (repit <= 30))
+				if ((ft_lstsize(*list_b) > 1) && (repit <= 28))
 				{
 					if ((*list_b)->nbr < mid_b)
 						rotate(list_b, 'B');
@@ -143,14 +143,7 @@ void	rule_500(t_list **list_a, t_list **list_b)
 		}
 		repit++;
 	}
-	while (ft_lstsize(*list_a) != 1)
-	{
+	while (ft_lstsize(*list_a) > 0)
 		push(list_b, list_a, 'B');
-		if ((ft_lstsize(*list_b) > 1) && (repit <= 30))
-		{
-			if ((*list_b)->nbr < mid_b)
-				rotate(list_b, 'B');
-		}
-	}
 	// rule_5(list_a, list_b);
 }
