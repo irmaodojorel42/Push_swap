@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 22:03:46 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/10 15:33:15 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/10 18:56:18 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	mid_nbr500(t_list **list_a)
 	t_list	*reference_a;
 	t_list	*reference_b;
 
-	i = (ft_lstsize(*list_a) / 8);
+	i = (ft_lstsize(*list_a) / 5);
 	reference_a = copy_stack(*list_a);
 	reference_b = NULL;
 	fake_sort(&reference_a, &reference_b);
@@ -80,7 +80,7 @@ int	mid_b_nbr500(t_list **list_a)
 	t_list	*reference_b;
 	t_list	*reference_sort;
 
-	i = (ft_lstsize(*list_a) / 8);
+	i = (ft_lstsize(*list_a) / 5);
 	j = (i / 2);
 	reference_a = copy_stack(*list_a);
 	reference_b = NULL;

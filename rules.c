@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:06:57 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/10 16:20:47 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/10 18:56:10 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	sort(t_list **list_a, t_list **list_b)
 		rule_3(ref_1, ref_2, ref_3, list_a);
 	if (ft_lstsize(*list_a) >= 4 && ft_lstsize(*list_a) <= 10)
 		rule_5(list_a, list_b);
-	if (ft_lstsize(*list_a) > 10 && ft_lstsize(*list_a) <= 450)
+	if (ft_lstsize(*list_a) > 10 && ft_lstsize(*list_a) <= 300)
 		rule_100(list_a, list_b);
-	if (ft_lstsize(*list_a) > 450)
+	if (ft_lstsize(*list_a) > 300)
 		rule_500(list_a, list_b);
 }
 
@@ -92,7 +92,7 @@ void	rule_100(t_list **list_a, t_list **list_b)
 	int		repit;
 
 	repit = 0;
-	while (repit++ != 3)
+	while (repit++ != 5)
 	{
 		mid = mid_nbr100(list_a);
 		mid_b = mid_b_nbr100(list_a);
@@ -101,7 +101,7 @@ void	rule_100(t_list **list_a, t_list **list_b)
 			if ((*list_a)->nbr <= mid)
 			{
 				push(list_b, list_a, 'B');
-				if ((ft_lstsize(*list_b) > 1) && (repit <= 3))
+				if ((ft_lstsize(*list_b) > 1) && (repit <= 5))
 				{
 					if ((*list_b)->nbr < mid_b)
 						rotate(list_b, 'B');
@@ -121,7 +121,7 @@ void	rule_500(t_list **list_a, t_list **list_b)
 	int		repit;
 
 	repit = 0;
-	while (repit++ != 28)
+	while (repit++ != 8)
 	{
 		mid = mid_nbr500(list_a);
 		mid_b = mid_b_nbr500(list_a);
@@ -130,20 +130,17 @@ void	rule_500(t_list **list_a, t_list **list_b)
 			if ((*list_a)->nbr <= mid)
 			{
 				push(list_b, list_a, 'B');
-				if ((ft_lstsize(*list_b) > 1) && (repit <= 28))
+				if ((ft_lstsize(*list_b) > 1) && (repit <= 8))
 				{
 					if ((*list_b)->nbr < mid_b)
 						rotate(list_b, 'B');
 				}
-			}
-			else if (last_value(list_a) <= mid)
-				rev_rotate(list_a, 'A');
-				
+			}	
 			else
 				rotate(list_a, 'A');
 		}
 	}
-	finish_list(list_a, list_b);
+	rule_100(list_a, list_b);
 }
 
 /*ficheiro pronto*/
