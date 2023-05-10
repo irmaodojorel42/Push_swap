@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 22:14:32 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/07 22:24:31 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/10 14:57:00 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,3 +65,5 @@ void	fake_rev_rotate(t_list **list)
 	*list = reference;
 	reference2->next = NULL;
 }
+
+/*ficheiro pronto*/

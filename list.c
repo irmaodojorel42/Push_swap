@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:07:18 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/08 18:20:58 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:31:37 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,3 +67,25 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (i);
 }
+
+void	finish_list(t_list **list_a, t_list **list_b)
+{
+	while (ft_lstsize(*list_a) > 0)
+		push(list_b, list_a, 'B');
+	while (ft_lstsize(*list_b) > 0)
+	{
+		if (distance(list_b, 'M') > (ft_lstsize(*list_b) / 2))
+		{
+			while (distance(list_b, 'M') != 1)
+				rev_rotate(list_b, 'B');
+		}
+		else
+		{
+			while (distance(list_b, 'M') != 1)
+				rotate(list_b, 'B');
+		}
+		push(list_a, list_b, 'A');
+	}
+}
+
+/*ficheiro cheio*/

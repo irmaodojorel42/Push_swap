@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:06:57 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/09 14:55:37 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/10 16:20:47 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,7 @@ void	rule_100(t_list **list_a, t_list **list_b)
 				rotate(list_a, 'A');
 		}
 	}
-	while (*list_b)
-		push(list_a, list_b, 'A');
-	rule_5(list_a, list_b);
+	finish_list(list_a, list_b);
 }
 
 void	rule_500(t_list **list_a, t_list **list_b)
@@ -123,7 +121,7 @@ void	rule_500(t_list **list_a, t_list **list_b)
 	int		repit;
 
 	repit = 0;
-	while (repit != 28)
+	while (repit++ != 28)
 	{
 		mid = mid_nbr500(list_a);
 		mid_b = mid_b_nbr500(list_a);
@@ -138,28 +136,14 @@ void	rule_500(t_list **list_a, t_list **list_b)
 						rotate(list_b, 'B');
 				}
 			}
+			else if (last_value(list_a) <= mid)
+				rev_rotate(list_a, 'A');
+				
 			else
 				rotate(list_a, 'A');
 		}
-		repit++;
 	}
-	while (ft_lstsize(*list_a) > 0)
-		push(list_b, list_a, 'B');
-	// ft_printf("%d\n", ft_lstsize(*list_b));
-	while (ft_lstsize(*list_b) > 0)
-	{
-		// ft_printf("ok\n");
-		if (distance(list_b, 'M') > (ft_lstsize(*list_b) / 2))
-		{
-			while (distance(list_b, 'M') != 1)
-				rev_rotate(list_b, 'B');
-		}
-		else
-		{
-			while (distance(list_b, 'M') != 1)
-				rotate(list_b, 'B');
-		}
-		push(list_a, list_b, 'A');
-	}
-	//rule_5(list_a, list_b);
+	finish_list(list_a, list_b);
 }
+
+/*ficheiro pronto*/

@@ -103,3 +103,5 @@ void	dualmove(t_list **listA, t_list **listB, char move)
 		write(1, "rrr\n", 4);
 	}
 }
+
+/*ficheiro cheio*/

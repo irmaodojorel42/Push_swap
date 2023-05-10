@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 20:17:00 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/06 22:31:04 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:16:55 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,3 +79,5 @@ long int	converse(char *arg)
 	}
 	return (n * s);
 }
+
+/*ficheiro pronto*/

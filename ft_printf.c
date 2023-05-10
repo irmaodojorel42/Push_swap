@@ -12,6 +12,33 @@
 
 #include "push_swap.h"
 
+void	print_stack(t_list **list_1, t_list **list_2)
+{
+	t_list	*list_a;
+	t_list	*list_b;
+
+	list_a = *list_1;
+	list_b = *list_2;
+	ft_printf("Stack A | Stack B\n");
+	while (list_a || list_b)
+	{
+		if (list_a)
+		{
+			ft_printf("%d       | ", list_a->nbr);
+			list_a = list_a->next;
+		}
+		else
+			ft_printf("        | ");
+		if (list_b)
+		{
+			ft_printf("%d\n", list_b->nbr);
+			list_b = list_b->next;
+		}
+		else
+			ft_printf("\n");
+	}
+}
+
 int	ft_putchar(char c)
 {
 	write(1, &c, 1);
@@ -60,3 +87,5 @@ int	ft_printf(const char *format, ...)
 	}
 	return (c);
 }
+
+/*ficheiro pronto*/

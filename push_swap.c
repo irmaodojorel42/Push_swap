@@ -6,38 +6,11 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 14:20:12 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/09 14:48:59 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/10 16:14:25 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_stack(t_list **list_1, t_list **list_2)
-{
-	t_list	*list_a;
-	t_list	*list_b;
-
-	list_a = *list_1;
-	list_b = *list_2;
-	ft_printf("Stack A | Stack B\n");
-	while (list_a || list_b)
-	{
-		if (list_a)
-		{
-			ft_printf("%d       | ", list_a->nbr);
-			list_a = list_a->next;
-		}
-		else
-			ft_printf("        | ");
-		if (list_b)
-		{
-			ft_printf("%d\n", list_b->nbr);
-			list_b = list_b->next;
-		}
-		else
-			ft_printf("\n");
-	}
-}
 
 int	main(int ac, char **av)
 {
@@ -59,9 +32,9 @@ int	main(int ac, char **av)
 		else
 			ft_lstclear(&list_a);
 	}
-	//print_stack(&list_a, &list_b);
 	sort(&list_a, &list_b);
-	//print_stack(&list_a, &list_b);
 	fake_ft_lstclear(&list_a);
 	return (0);
 }
+
+/*ficheiro pronto*/

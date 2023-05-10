@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 19:01:44 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/08 00:03:24 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/10 15:08:15 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,3 +103,5 @@ int	ft_hexadec(unsigned long int n, int type)
 		c += ft_putchar(p[n]);
 	return (c);
 }
+
+/*ficheiro pronto*/
