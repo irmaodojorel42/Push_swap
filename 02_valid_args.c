@@ -1,16 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   valid_args.c                                       :+:      :+:    :+:   */
+/*   02_valid_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 20:17:00 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/10 15:16:55 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/24 18:04:05 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	list_sort(t_list **list)
+{
+	t_list	*tmp;
+	t_list	*next;
+
+	tmp = *list;
+	next = (*list)->next;
+	while (next)
+	{
+		if (tmp->nbr > next->nbr)
+			return (1);
+		tmp = tmp->next;
+		next = next->next;
+	}
+	exit (0);
+}
 
 int	check(char *arg)
 {
@@ -55,11 +72,11 @@ int	check_copy(t_list *lst, int n)
 	return (ok);
 }
 
-long int	converse(char *arg)
+long long	converse(char *arg)
 {
 	int			i;
 	int			s;
-	long int	n;
+	long long	n;
 
 	i = 0;
 	s = 1;

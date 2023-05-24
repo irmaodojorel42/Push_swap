@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules.c                                            :+:      :+:    :+:   */
+/*   04_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:06:57 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/10 18:56:10 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/24 18:20:48 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,46 @@
 
 void	sort(t_list **list_a, t_list **list_b)
 {
-	t_list	*ref_1;
-	t_list	*ref_2;
-	t_list	*ref_3;
+	int	nbr_1;
+	int	nbr_2;
+	int	nbr_3;
 
-	ref_1 = *list_a;
-	ref_2 = (*list_a)->next;
-	ref_3 = ref_2->next;
-	if (ft_lstsize(*list_a) == 2 && (*list_a)->nbr > ref_2->nbr)
+	nbr_1 = (*list_a)->nbr;
+	nbr_2 = (*list_a)->next->nbr;
+	if (ft_lstsize(*list_a) == 2)
 		swap(list_a, 'A');
-	if (ft_lstsize(*list_a) == 3)
-		rule_3(ref_1, ref_2, ref_3, list_a);
-	if (ft_lstsize(*list_a) >= 4 && ft_lstsize(*list_a) <= 10)
+	else if (ft_lstsize(*list_a) == 3)
+	{
+		nbr_3 = (*list_a)->next->next->nbr;
+		rule_3(nbr_1, nbr_2, nbr_3, list_a);
+	}
+	else if (ft_lstsize(*list_a) >= 4 && ft_lstsize(*list_a) <= 50)
 		rule_5(list_a, list_b);
-	if (ft_lstsize(*list_a) > 10 && ft_lstsize(*list_a) <= 300)
+	else if (ft_lstsize(*list_a) > 50 && ft_lstsize(*list_a) <= 300)
 		rule_100(list_a, list_b);
-	if (ft_lstsize(*list_a) > 300)
+	else if (ft_lstsize(*list_a) > 300)
 		rule_500(list_a, list_b);
 }
 
-void	rule_3(t_list *ref_1, t_list *ref_2, t_list *ref_3, t_list **listA)
+void	rule_3(int nbr_1, int nbr_2, int nbr_3, t_list **listA)
 {
-	if (ref_1->nbr > ref_2->nbr)
+	if (nbr_1 > nbr_2)
 	{
-		if (ref_3->nbr > ref_2->nbr && ref_3->nbr > ref_1->nbr)
+		if (nbr_3 > nbr_2 && nbr_3 > nbr_1)
 			swap(listA, 'A');
-		else if (ref_3->nbr > ref_2->nbr && ref_1->nbr > ref_3->nbr)
+		else if (nbr_3 > nbr_2 && nbr_1 > nbr_3)
 			rotate(listA, 'A');
-		else if (ref_2->nbr > ref_3->nbr && ref_1->nbr > ref_3->nbr)
+		else if (nbr_2 > nbr_3 && nbr_1 > nbr_3)
 		{
 			swap(listA, 'A');
 			rev_rotate(listA, 'A');
 		}
 	}
-	else if (ref_2->nbr > ref_1->nbr)
+	else if (nbr_2 > nbr_1)
 	{
-		if (ref_2->nbr > ref_3->nbr && ref_1->nbr > ref_3->nbr)
+		if (nbr_2 > nbr_3 && nbr_1 > nbr_3)
 			rev_rotate(listA, 'A');
-		else if (ref_2->nbr > ref_3->nbr && ref_3->nbr > ref_1->nbr)
+		else if (nbr_2 > nbr_3 && nbr_3 > nbr_1)
 		{
 			swap(listA, 'A');
 			rotate(listA, 'A');
@@ -103,7 +105,9 @@ void	rule_100(t_list **list_a, t_list **list_b)
 				push(list_b, list_a, 'B');
 				if ((ft_lstsize(*list_b) > 1) && (repit <= 5))
 				{
-					if ((*list_b)->nbr < mid_b)
+					if ((*list_b)->nbr < mid_b && (*list_a)->nbr > mid)
+						dualmove(list_a, list_b, 'r');
+					else if ((*list_b)->nbr < mid_b)
 						rotate(list_b, 'B');
 				}
 			}
@@ -132,7 +136,9 @@ void	rule_500(t_list **list_a, t_list **list_b)
 				push(list_b, list_a, 'B');
 				if ((ft_lstsize(*list_b) > 1) && (repit <= 8))
 				{
-					if ((*list_b)->nbr < mid_b)
+					if ((*list_b)->nbr < mid_b && (*list_a)->nbr > mid)
+						dualmove(list_a, list_b, 'r');
+					else if ((*list_b)->nbr < mid_b)
 						rotate(list_b, 'B');
 				}
 			}	

@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 12:21:59 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/10 15:58:50 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/24 18:04:44 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <limits.h>
 
 /***********************STRUCT***********************/
 
@@ -43,7 +44,8 @@ void		finish_list(t_list **list_a, t_list **list_b);
 /*********************FUNCTIONS_VALID_ARGS*********************/
 
 int			check(char *arg);
-long int	converse(char *arg);
+long long	converse(char *arg);
+int			list_sort(t_list **list);
 int			check_copy(t_list *lst, int n);
 
 /************************FUNCTIONS_MOVES***********************/
@@ -66,13 +68,13 @@ int			ft_check(unsigned long int n, int type);
 int			ft_hexadec(unsigned long int n, int type);
 void		print_stack(t_list **listA, t_list **listB);
 
-/*********************FUNCTIONS_RULES*********************/
+/*********************FUNCTIONS_SORT*********************/
 
 void		sort(t_list **list_a, t_list **list_b);
 void		rule_5(t_list **list_a, t_list **list_b);
 void		rule_100(t_list **list_a, t_list **list_b);
 void		rule_500(t_list **list_a, t_list **list_b);
-void		rule_3(t_list *ref_1, t_list *ref_2, t_list *ref_3, t_list **listA);
+void		rule_3(int nbr_1, int nbr_2, int nbr_3, t_list **listA);
 
 /*********************FUNCTIONS_INFO_LIST*********************/
 

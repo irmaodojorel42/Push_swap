@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 16:07:18 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/10 15:31:37 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/24 17:33:09 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_lstclear(t_list **lst)
 	t_list	*reference;
 
 	if (!*lst)
-		exit (write(1, "Error\n", 6));
+		exit (write(2, "Error\n", 6));
 	while (*lst)
 	{
 		reference = (*lst)->next;
@@ -52,7 +52,7 @@ void	ft_lstclear(t_list **lst)
 		*lst = reference;
 	}
 	lst = NULL;
-	exit (write(1, "Error\n", 6));
+	exit (write(2, "Error\n", 6));
 }
 
 int	ft_lstsize(t_list *lst)

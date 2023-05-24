@@ -6,7 +6,7 @@
 /*   By: ceribeir <ceribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 19:09:13 by ceribeir          #+#    #+#             */
-/*   Updated: 2023/05/10 16:14:12 by ceribeir         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:03:55 by ceribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	last_value(t_list **list)
 {
 	t_list	*reference;
 	int		value;
-	
+
 	reference = *list;
 	while (reference->next != NULL)
 		reference = reference->next;
